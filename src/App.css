@@ -168,3 +168,8 @@ main {
         flex-direction: column;
     }
 }
+
+#category {
+    width: 100%;
+    padding: 8px 0;
+}
