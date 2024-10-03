@@ -59,7 +59,8 @@ const ExpenseTabel = ({expenses}) => {
           <tr>
             <th>Total</th>
             <th></th>
-            <th>₹8100</th>
+            <th>$8100</th>
+           
           </tr>
         </tbody>
       </table>
