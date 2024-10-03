@@ -54,7 +54,15 @@ const ExpenseForm = (props) => {
   // const titleRef = useRef(null);
   // const categoryRef = useRef(null);
   // const amountRef = useRef(null);
-
+  const handleChange =(e)=>{
+    const {name} = e.target;
+    {
+      setExpense((preState) => ({
+        ...preState,
+       [name]: e.target.value,
+      }))
+    }
+  }
   return (
     <form className="expense-form" onSubmit={handleSubmit}>
       <div className="input-container">
@@ -64,9 +72,7 @@ const ExpenseForm = (props) => {
           required
           name="title"
           value={expense.title}
-          onChange={(e) =>
-            setExpense((preState) => ({ ...preState, title: e.target.value }))
-          }
+          onChange={handleChange}
           // ref={titleRef }
         />
       </div>
@@ -77,12 +83,7 @@ const ExpenseForm = (props) => {
           name="category"
           required
           value={expense.category}
-          onChange={(e) =>
-            setExpense((preState) => ({
-              ...preState,
-              category: e.target.value,
-            }))
-          }
+          onChange={handleChange}
           // ref={categoryRef}
         >
           <option value="" hidden>
@@ -102,9 +103,7 @@ const ExpenseForm = (props) => {
           required
           name="amount"
           value={expense.amount}
-          onChange={(e) =>
-            setExpense((preState) => ({ ...preState, amount: e.target.value }))
-          }
+          onChange={handleChange}
           // ref={amountRef}
         />
       </div>
