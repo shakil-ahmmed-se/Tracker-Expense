@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
+import Input from "./Input";
 
 const ExpenseForm = (props) => {
   const { setExpenses } = props;
@@ -65,17 +66,8 @@ const ExpenseForm = (props) => {
   }
   return (
     <form className="expense-form" onSubmit={handleSubmit}>
-      <div className="input-container">
-        <label htmlFor="title">Title</label>
-        <input
-          id="title"
-          required
-          name="title"
-          value={expense.title}
-          onChange={handleChange}
-          // ref={titleRef }
-        />
-      </div>
+      
+      <Input label='Title'  onChange={handleChange} id ='title' name='title' value={expense.title}/>
       <div className="input-container">
         <label htmlFor="category">Category</label>
         <select
@@ -96,17 +88,8 @@ const ExpenseForm = (props) => {
           <option value="Medicine">Medicine</option>
         </select>
       </div>
-      <div className="input-container">
-        <label htmlFor="amount">Amount</label>
-        <input
-          id="amount"
-          required
-          name="amount"
-          value={expense.amount}
-          onChange={handleChange}
-          // ref={amountRef}
-        />
-      </div>
+     
+      <Input label='Amount' id='amount' onChange={handleChange} value={expense.amount} name='amount' />
       <button className="add-btn">Add</button>
     </form>
   );
