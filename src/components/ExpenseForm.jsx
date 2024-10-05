@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import Input from "./Input";
+import Select from "./Select";
 
 const ExpenseForm = (props) => {
   const { setExpenses } = props;
@@ -29,9 +30,9 @@ const ExpenseForm = (props) => {
     
   };
 
-  useEffect(() => {
-    console.log('rendering');
-  },[])
+  // useEffect(() => {
+  //   console.log('rendering');
+  // },[])
   // console.log(title)
 
   // const getFormData = (form) => {
@@ -68,27 +69,7 @@ const ExpenseForm = (props) => {
     <form className="expense-form" onSubmit={handleSubmit}>
       
       <Input label='Title'  onChange={handleChange} id ='title' name='title' value={expense.title}/>
-      <div className="input-container">
-        <label htmlFor="category">Category</label>
-        <select
-          id="category"
-          name="category"
-          required
-          value={expense.category}
-          onChange={handleChange}
-          // ref={categoryRef}
-        >
-          <option value="" hidden>
-            Select Category
-          </option>
-          <option value="Grocery">Grocery</option>
-          <option value="Clothes">Clothes</option>
-          <option value="Bills">Bills</option>
-          <option value="Education">Education</option>
-          <option value="Medicine">Medicine</option>
-        </select>
-      </div>
-     
+      <Select label ='Select Category' onChange={handleChange} id='category' name='category' value={expense.category}  />     
       <Input label='Amount' id='amount' onChange={handleChange} value={expense.amount} name='amount' />
       <button className="add-btn">Add</button>
     </form>
@@ -96,3 +77,5 @@ const ExpenseForm = (props) => {
 };
 
 export default ExpenseForm;
+
+
